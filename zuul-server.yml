@@ -1,23 +1,38 @@
-#server:
-  port: 8080 #the default port used for zuul service
+server:
+port: 8080 #the default port used for zuul service
 
-eureka: 
+
+eureka:
   client:
+    instance:
+      preferIpAddress: 'true'
+    fetchRegistry: 'true'
+    registerWithEureka: 'true'
     serviceUrl:
       defaultZone: http://eureka-server:8761/eureka
+zuul:
+  routes:
+    account:
+      path: /account/**
+      serviceId: account-service
+
+#eureka: 
+#  client:
+ #   serviceUrl:
+  #    defaultZone: http://eureka-server:8761/eureka
       
 # Option 0. Only zuul, with not services
-zuul:
-  ignoredServices: '*'
-  host:
-    connect-timeout-millis: 20000
-    socket-timeout-millis: 20000
-    routes:
-      sample-service: # Service to create as sample
-        path: /sample/** #path that will be intercepted
-        url: sample-service #which url the request will e mapped to
-        stripPrefix: false  #if zuul should replace the "/sample/" segment
-        sensitiveHeaders:
+#zuul:
+#  ignoredServices: '*'
+#  host:
+#    connect-timeout-millis: 20000
+#    socket-timeout-millis: 20000
+#    routes:
+#      sample-service: # Service to create as sample
+ #       path: /sample/** #path that will be intercepted
+ #       url: sample-service #which url the request will e mapped to
+ #       stripPrefix: false  #if zuul should replace the "/sample/" segment
+ #       sensitiveHeaders:
 
 # Option 1: Routing via url:
 # These simple url-routes do not get executed as a HystrixCommand, nor do they load-balance multiple URLs with Ribbon
