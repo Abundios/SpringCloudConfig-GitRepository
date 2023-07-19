@@ -15,4 +15,4 @@ zuul:
   routes:
     echo-service:
       path: /echo/**
-      serviceId: echo-service
+      url: http://pepito:8044
