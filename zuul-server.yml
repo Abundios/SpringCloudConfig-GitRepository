@@ -5,9 +5,9 @@ server:
 #Zuul Configuration Properties
 zuul:
   routes:
-   echo-service:
+   echsvc:
      path: /echo/**
-     url: http://eureka-server:8091
+     serviceId: echo-service
 
 #Eureka Configuration Properties
 eureka:
