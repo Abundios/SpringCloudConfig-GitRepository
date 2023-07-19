@@ -1,13 +1,3 @@
 
 server:
   port: 7091
-
-eureka:
-  client:
-    fetch-registry: true
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka
-  instance:
-    leaseRenewalIntervalInSeconds: 10
-    metadataMap:
-      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}:${random.value}}
