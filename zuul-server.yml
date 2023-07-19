@@ -1,20 +1,37 @@
+#Tomcat Embedded Server Configuration
 server:
-port: 8080 #the default port used for zuul service
+  port: 7000
 
-
-eureka:
-  client:
-    instance:
-      preferIpAddress: 'true'
-    fetchRegistry: 'true'
-    registerWithEureka: 'true'
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka
+#Zuul Configuration Properties
 zuul:
   routes:
-    account:
-      path: /account/**
-      serviceId: account-service
+    serv-greet:
+      path: /greeting-service/**
+      serviceId: greeting-microservice
+
+#Eureka Configuration Properties
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka
+      
+#server:
+#port: 8080 #the default port used for zuul service
+
+
+#eureka:
+#  client:
+#    instance:
+#      preferIpAddress: 'true'
+#    fetchRegistry: 'true'
+#    registerWithEureka: 'true'
+#    serviceUrl:
+#      defaultZone: http://eureka-server:8761/eureka
+#zuul:
+#  routes:
+#    account:
+#      path: /account/**
+#      serviceId: account-service
 
 #eureka: 
 #  client:
