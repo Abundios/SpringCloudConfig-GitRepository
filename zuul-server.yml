@@ -1,6 +1,11 @@
 #server:
-#  port: 8080 #the default port used for zuul service
+  port: 8080 #the default port used for zuul service
 
+eureka: 
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka
+      
 # Option 0. Only zuul, with not services
 zuul:
   ignoredServices: '*'
