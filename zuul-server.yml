@@ -1,16 +1,18 @@
-#Tomcat Embedded Server Configuration
 server:
   port: 8080
 
-#Zuul Configuration Properties
-zuul:
-  routes:
-   echsvc:
-     path: /echo/**
-     serviceId: echo-service
 
-#Eureka Configuration Properties
 eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka-server:8761/eureka
+  instance:
+    appname: zuul-server
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}:${random.value}}
+
+zuul:
+  routes:
+    echo-service:
+      path: /echo/**
+      serviceId: echo-service
