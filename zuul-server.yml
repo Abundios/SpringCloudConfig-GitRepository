@@ -7,7 +7,7 @@ zuul:
   routes:
    echo-service:
      path: /echo/**
-     url: http://eureka-server:8091
+     url: http://localhost:8091
 
 #Eureka Configuration Properties
 eureka:
