@@ -1,2 +1,13 @@
 server:
   port: 8761 #the default port used for eureka servers
+
+eureka:
+  instance:
+    hostname: eureka-server
+    #when the application registers with eureka, it uses its IP address rather than its hostname
+    #prefer-ip-address: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/   
