@@ -1,6 +1,6 @@
 #Tomcat Embedded Server Configuration
 server:
-  port: 7000
+  port: 8080
 
 #Zuul Configuration Properties
 zuul:
