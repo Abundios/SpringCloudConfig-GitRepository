@@ -14,8 +14,21 @@ eureka:
     metadataMap:
       instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}:${random.value}}
 
+#zuul:
+#  routes:
+#    echo:
+#      path: /echo/**
+#      serviceId: echo-service
+
 zuul:
   routes:
-    echo:
+    echo-service:
       path: /echo/**
       serviceId: echo-service
+ribbon:
+  eureka:
+    enabled: false
+
+echo-service:
+  ribbon:
+    listOfServers: http://eureka-server:8091,http://eureka-server:8092
