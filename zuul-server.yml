@@ -29,6 +29,4 @@ ribbon:
   eureka:
     enabled: false
 
-echo-service:
-  ribbon:
-    listOfServers: http://eureka-server:8091,http://eureka-server:8092
+
