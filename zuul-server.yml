@@ -15,4 +15,5 @@ zuul:
   routes:
     echo-service:
       path: /echo/**
-      serviceId: echo-service
+      url: http://eureka-server:7091
+      
