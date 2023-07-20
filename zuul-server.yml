@@ -10,11 +10,10 @@ zuul:
   routes:
       ech-svc:
         path: /echo/**
-        #serviceId: echo-service
+        serviceId: echo-service
+      pldap-service:
+        path: /testldap/**
         serviceId: pruebaldap-service
-      #pldap-service:
-      #  path: /testldap/**
-      #  serviceId: pruebaldap-service
  
 #Eureka Configuration Properties
 eureka: 
