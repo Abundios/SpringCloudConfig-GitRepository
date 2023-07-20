@@ -13,7 +13,7 @@ zuul:
         serviceId: echo-service
       pldap-service:
         path: /testldap/**
-        serviceId: pruebaldap-service
+        serviceId: ldapservice-service
  
 #Eureka Configuration Properties
 eureka: 
