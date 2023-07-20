@@ -1,6 +1,6 @@
 
 server:
-  port: 7091
+  port: 7092
 
 #Eureka Configuration Properties  
 eureka: 
