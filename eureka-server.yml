@@ -9,7 +9,7 @@ eureka:
     serviceUrl:
       #defaultZone: http://eureka-server:8761/eureka
       defaultZone=${SERVICE_URL_DEFAULT_ZONE}
-    service-url:
-      defaultZone=${SERVICE_URL_DEFAULT_ZONE}
+    #service-url:
+    #  defaultZone=${SERVICE_URL_DEFAULT_ZONE}
   server:
     waitTimeInMsWhenSyncEmpty: 0    #wait time for subsequent sync
