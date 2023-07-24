@@ -7,6 +7,6 @@ eureka:
   client:
     serviceUrl:
       #defaultZone: http://eureka-server:8761/eureka
-      defaultZone=${SERVICE_URL_DEFAULT_ZONE}
+      defaultZone=http://eureka-server:8761/eureka
     service-url:
-      defaultZone=${SERVICE_URL_DEFAULT_ZONE}
+      defaultZone=http://eureka-server:8761/eureka
