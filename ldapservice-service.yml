@@ -2,3 +2,8 @@
 server:
   port: 7094
 
+#Eureka Configuration Properties  
+eureka: 
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8010/eureka
