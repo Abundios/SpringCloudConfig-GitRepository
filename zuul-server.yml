@@ -10,7 +10,7 @@ zuul:
   routes:
        pldap-service:
         path: /testldap/**
-        url: http://localhost:7094
+        url: http://eureka-server:7094
        ech-svc:
         path: /echo/**
         serviceId: echo-service
