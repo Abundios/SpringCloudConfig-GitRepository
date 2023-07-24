@@ -10,7 +10,7 @@ zuul:
   routes:
        pldap-service:
         path: /testldap/**
-         url: http://localhost:7094
+         serviceId: echo-service
        ech-svc:
         path: /echo/**
         serviceId: echo-service
