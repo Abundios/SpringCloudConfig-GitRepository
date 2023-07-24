@@ -11,6 +11,9 @@ zuul:
        ech-svc:
         path: /echo/**
         serviceId: echo-service
+       pldap-service:
+        path: /testldap/**
+        url: http://localhost:7094
 
 #Eureka Configuration Properties
 eureka: 
