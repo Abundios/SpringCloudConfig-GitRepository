@@ -8,10 +8,13 @@ spring:
 #Zuul Configuration Properties
 zuul:
   routes:
-      pldap-service:
+       pldap-service:
         path: /testldap/**
         serviceId: ldapservice-service
- 
+       ech-svc:
+        path: /echo/**
+        serviceId: echo-service
+
 #Eureka Configuration Properties
 eureka: 
   client:
