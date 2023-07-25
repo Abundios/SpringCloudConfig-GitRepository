@@ -11,15 +11,15 @@ zuul:
        ech-svc:
         path: /echo/**
         serviceId: echo-service
-       pldap-service:
+       refresh-svc:
         path: /testldap/**
-        url: http://localhost:7094
+        serviceId: refresh-service
        appvis-svc:
         path: /app/**
-        serviceId: appvisual-service
+        url: http://localhost:9001
        restapi-svc:
         path: /restapi/**
-        url: restapi-service        
+        url: http://localhost:9002
 
 #Eureka Configuration Properties
 eureka: 
