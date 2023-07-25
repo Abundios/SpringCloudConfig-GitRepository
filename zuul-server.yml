@@ -13,7 +13,7 @@ zuul:
         serviceId: echo-service
        refresh-svc:
         path: /testldap/**
-        serviceId: refresh-service
+        serviceId: http://localhost:7094
        appvis-svc:
         path: /app/**
         url: http://localhost:9001
