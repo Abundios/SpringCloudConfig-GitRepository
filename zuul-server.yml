@@ -16,10 +16,10 @@ zuul:
         url: http://localhost:7094
        appvis-svc:
         path: /app/**
-        url: http://localhost:9002
+        serviceId: appvisual-service
        restapi-svc:
         path: /restapi/**
-        url: http://localhost:9001
+        serviceId: restapi-service
 
 #Eureka Configuration Properties
 eureka: 
