@@ -14,12 +14,6 @@ zuul:
        refresh-svc:
         path: /testldap/**
         url: http://localhost:7094
-       appvis-svc:
-        path: /app/**
-        serviceId: appvisual-service
-       appvis2-svc:
-        path: /principal/**
-        serviceId: appvisual-service        
        appvis2-svc:
         path: /login/**
         serviceId: appvisual-service        
