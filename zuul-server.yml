@@ -17,6 +17,12 @@ zuul:
        appvis-svc:
         path: /app/**
         serviceId: appvisual-service
+       appvis2-svc:
+        path: /principal/**
+        serviceId: appvisual-service        
+       appvis2-svc:
+        path: /login/**
+        serviceId: appvisual-service        
        restapi-svc:
         path: /restapi/**
         serviceId: restapi-service
