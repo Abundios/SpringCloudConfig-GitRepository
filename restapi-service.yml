@@ -6,3 +6,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
+
+mildap:
+  url: ldap://localhost1:389/dc=abundio,dc=com
+ldap:
+  url: ldap:/localhost2:389
+spring:
+  datasource:
+    url=jdbc:postgresql://localhost3:5432/Invest
+
