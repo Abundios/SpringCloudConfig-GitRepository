@@ -13,5 +13,5 @@ ldap:
   url: ldap:/localhost:389
 spring:
   datasource:
-    url:jdbc:postgresql://localhost3:5432/Invest
+    url: jdbc:postgresql://localhost3:5432/Invest
 
