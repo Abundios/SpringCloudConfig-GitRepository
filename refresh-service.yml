@@ -8,4 +8,4 @@ eureka:
       defaultZone: http://eureka-server:8761/eureka
 
 timer:
-  refresh: 30 
+  refresh: 120 
