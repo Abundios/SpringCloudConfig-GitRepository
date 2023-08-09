@@ -1,0 +1,94 @@
+#DEBIDO A ESTE PROBLEMA:
+#https://lightrun.com/answers/spring-cloud-spring-cloud-netflix-eureka-default-zone-setting-is-not-picked-up-when-using-environment-variables
+#https://github.com/spring-cloud/spring-cloud-netflix/issues/2541
+#utilizo la manera de que los contenedores estén en la red local de mi maquina:
+#https://www.howtogeek.com/devops/how-to-connect-to-localhost-within-a-docker-container/
+#y asi pueden direccionar a localhost
+version: '3.8'
+services:
+
+
+  #docker pull postgres      
+  dbpostgres:
+    image: postgres
+  #  ports:
+  #   - "5432:5432"
+    #restart: always
+    volumes:
+    #- ./bd:/var/lib/postgresql/data
+    - bd:/var/lib/postgresql/data
+    environment:       
+      POSTGRES_DB: appdb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: adminPassword
+    network_mode: host
+     
+  #docker pull osixia/openldap:1.5.0   
+  ldap:
+    image: osixia/openldap:1.5.0
+    container_name: ldap
+    environment:
+        - LDAP_ORGANISATION=abundio
+        - LDAP_DOMAIN=abundio.com
+        - "LDAP_BASE_DN=dc=abundio,dc=com"
+        - LDAP_ADMIN_PASSWORD=abundio
+    volumes:
+      - ldap_database:/var/lib/ldap
+      - slapd_config:/etc/ldap/slapd.d
+    #ports:
+    #    - 389:389
+    #    - 636:636
+    #networks:
+    #  - 'dockernetflix-network'
+    network_mode: host
+
+  eureka-config:
+    image: eureka-config 
+    restart: always
+    container_name: eureka-config
+    network_mode: host
+         
+  eureka-server:
+    image: eureka-server 
+    restart: always
+    container_name: eureka-server
+    environment:
+      CLOUD_SEA_CONFIG_SERVER_URI: http://eureka-config:8888
+      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
+    depends_on:
+      - eureka-config
+    network_mode: host
+             
+  appvisual-service:
+    image: appvisual-service 
+    restart: always
+    container_name: appvisual-service
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka
+    network_mode: host
+#      
+  restapi-service:
+    image: restapi-service
+    restart: always
+    container_name: restapi-service
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka
+    network_mode: host
+#
+  refrshproducts-service:
+    image: refrshproducts-service
+    restart: always
+    container_name: refrshproducts-service
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka
+    network_mode: host
+          
+#networks:
+#  dockernetflix-network: #necesitamos crear en una red para alojar los servicios en ella y que puedan comunicarse entre sí
+
+volumes:
+ ldap_database: {}
+ slapd_config: {}
+ bd: {}           
+                                                                                                                                 
+
