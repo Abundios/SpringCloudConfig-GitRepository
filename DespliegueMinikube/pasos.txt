@@ -1,1 +1,19 @@
+eval $(minikube docker-env)
+para referenciar a minikube cuando utilice kubectl
 
+Hay que crear las imágenes en minikube
+docker build -t eureka-config .
+docker build -t eureka-server  .
+docker build -t restapi-service
+docker build -t restapi-service .
+docker build -t appvisual-service 
+docker build -t appvisual-service  .
+docker build -t refrshproducts-service .
+
+Creación del esquema de base de datos y del árbol de LDAP
+
+Secuencia de creación del despliegue y servicios
+kubectl create -f investion.yaml
+kubectl create -f serviceDB.yaml  
+kubectl create -f serviceRest.yaml
+kubectl create -f serviceAppVisual.yaml
