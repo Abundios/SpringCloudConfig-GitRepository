@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Investment App</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<div>
+    <div th:insert="fragments/nav :: nav"></div>
+    <div class="text-light" style="background-image: url('https://source.unsplash.com/1920x1080/?nature');
+                                   position: absolute;
+                                   left: 0;
+                                   top: 0;
+                                   opacity: 0.6;
+                                   z-index: -1;
+                                   min-height: 100vh;
+                                   min-width: 100vw;">
+    </div>
+
+    <div class="container" style="padding-top: 20vh; display: flex; flex-direction: column; align-items: center;">
+        <h1 class="display-3">Easy test investment</h1>
+        <p class="lead">Test your investment skills purchasing products. 100.000$ in a virtual way to test. </p>
+        <a href="/principal" class="btn btn-success btn-lg my-2">Principal</a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUserModal">
+            Create user
+        </button>
+        <!-- Modal -->
+        <div th:insert="fragments/modalCreateUser :: modal" th:with="user=${user}"></div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

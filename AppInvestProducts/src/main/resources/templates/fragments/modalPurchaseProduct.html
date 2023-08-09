@@ -1,0 +1,48 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="modal fade" th:fragment="modal" id="createInvestmentModal" tabindex="-1" role="dialog" aria-labelledby="createInvestmentModalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createInvestmentModalTitle">Purchase product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form action="#" th:action="@{/purchase-submit}" th:object="${product}" method="post" >
+                    <div class="form-group row">
+                        <label for="description" class="col-2 col-form-label">Product</label>
+                        <div class="col-10">
+                            <select class="form-control" id="type-select" th:field="*{description}">
+                                <tr th:each="products : ${session.products}">
+                                <option  th:value="${products.description}" th:utext = "${products.description}">
+                                </option>
+                                </tr>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row" th:object="${detailPurchase}">
+                        <div class="col-md-4 mt-5">
+                            <label for="amount">Amount</label>
+                            <input class="form-control"
+                                   type="number"
+                                   th:value="${detailPurchase.investedAmount}" th:field="*{investedAmount}"
+                                   th:min="1"
+                                   th:max="${detailPurchase.investedAmount}"
+                                   id="amount" name="amount" />
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" value="Submit">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
