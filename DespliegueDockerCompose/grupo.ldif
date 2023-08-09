@@ -1,0 +1,4 @@
+dn: ou=groups,dc=abundio,dc=com
+objectclass: top
+objectclass: organizationalUnit
+ou: groups

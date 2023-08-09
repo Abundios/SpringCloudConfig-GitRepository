@@ -1,0 +1,9 @@
+dn: uid=usuarioacceso,ou=people,dc=abundio,dc=com
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Usuario Acceso
+sn: usuarioacceso
+uid: Usuario
+userPassword: $2a$12$K5wpYDnfZLIFqfpqYILxPOLsm7afKYh194./Id/0Tjfcl9H/gZGES
