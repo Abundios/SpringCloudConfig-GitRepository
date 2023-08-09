@@ -20,6 +20,7 @@ Importo /creo BBDD a partir de los sql
 
 Inserto datos en BBDD a partir de los .csv
 
+Inserto grupos y usuarios en el árbol del LDAP:
 ldapadd -x -H ldap://localhost:389 -D "cn=admin,dc=abundio,dc=com" -w abundio -f grupo.ldif
 ldapadd -x -H ldap://localhost:389 -D "cn=admin,dc=abundio,dc=com" -w abundio -f arbol.ldif 
 ldapadd -x -H ldap://localhost:389 -D "cn=admin,dc=abundio,dc=com" -w abundio -f misusuarios2.ldif
