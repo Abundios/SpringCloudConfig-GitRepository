@@ -1,1 +1,29 @@
+Creo las imágenes de los jars de cada ino de los componentes:
+sudo docker build -t eureka-config .
+sudo docker build -t eureka-server  .
+sudo docker build -t restapi-service
+sudo docker build -t restapi-service .
+sudo docker build -t appvisual-service 
+sudo docker build -t appvisual-service  .
+sudo docker build -t refrshproducts-service .
+
+Además de traerme estas dos imágenes, para la base de datos y servidor LDAP:
+docker pull postgres      
+docker pull osixia/openldap:1.5.0  
+
+Instalo pgadmin4 para poder trabajar con la instancia de la base de datos de manera visual
+
+Inicialmente, levanto solamente base de datos y LDAP para crear el esquema de la base de datos y el arbol en LDAP.
+Los volúmenes, los puedo crear yo o si no, Docker Compose los crea él mismo
+
+Importo /creo BBDD a partir de los sql
+
+Inserto datos en BBDD a partir de los .csv
+
+ldapadd -x -H ldap://localhost:389 -D "cn=admin,dc=abundio,dc=com" -w abundio -f grupo.ldif
+ldapadd -x -H ldap://localhost:389 -D "cn=admin,dc=abundio,dc=com" -w abundio -f arbol.ldif 
+ldapadd -x -H ldap://localhost:389 -D "cn=admin,dc=abundio,dc=com" -w abundio -f misusuarios2.ldif
+
+Arranco docker-compose sin problemas
+(Eso sí, las imagenes, como son tantas, hay que tener cuidado que el nombre de la imagen se corresponde con el jar en la creación)
 
