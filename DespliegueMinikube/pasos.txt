@@ -10,7 +10,7 @@ docker build -t appvisual-service
 docker build -t appvisual-service  .
 docker build -t refrshproducts-service .
 
-Creación del esquema de base de datos y del árbol de LDAP
+Creación del esquema de base de datos y del árbol de LDAP (igual que en el despligue con Docker Compose)
 
 Secuencia de creación del despliegue y servicios
 kubectl create -f investion.yaml
